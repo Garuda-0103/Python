@@ -1,0 +1,156 @@
+Here are the solutions and explanations for your questions:  
+
+---
+
+### 1. Program to fetch data from a URL and print it:
+```python
+import requests
+
+url = "https://example.com"  # Replace with the URL you want to fetch
+response = requests.get(url)
+
+if response.status_code == 200:
+    print(response.text)
+else:
+    print(f"Failed to fetch data. Status code: {response.status_code}")
+```
+**Explanation**:  
+- Use the `requests` library to send a GET request to the specified URL.
+- Check the response status and print the content (`response.text`).
+
+---
+
+### 2. Program to compute total size of all files in the current directory:
+```python
+import os
+
+total_size = 0
+for file_name in os.listdir("."):
+    if os.path.isfile(file_name):
+        total_size += os.path.getsize(file_name)
+
+print(f"Total size of all files: {total_size} bytes")
+```
+**Explanation**:  
+- The `os` module is used to list all files in the current directory.
+- Use `os.path.getsize()` to get the size of each file and accumulate the total.
+
+---
+
+### 3. Program to copy a file line by line with line numbers:
+```python
+source_file = "source.txt"  # Replace with your source file
+destination_file = "destination.txt"
+
+with open(source_file, "r") as src, open(destination_file, "w") as dest:
+    for line_number, line in enumerate(src, start=1):
+        dest.write(f"{line_number}: {line}")
+```
+**Explanation**:  
+- Open the source file for reading and the destination file for writing.
+- Enumerate each line in the source file and write it with a line number to the destination file.
+
+---
+
+### 4. Program to count tabs, spaces, and newline characters in a file:
+```python
+file_name = "file.txt"  # Replace with your file name
+
+tab_count = space_count = newline_count = 0
+
+with open(file_name, "r") as file:
+    for line in file:
+        tab_count += line.count("\t")
+        space_count += line.count(" ")
+        newline_count += line.count("\n")
+
+print(f"Tabs: {tab_count}, Spaces: {space_count}, Newlines: {newline_count}")
+```
+**Explanation**:  
+- Read the file line by line.
+- Count occurrences of `\t` for tabs, ` ` for spaces, and `\n` for newlines.
+
+---
+
+### 5. Program to calculate percentage of vowels and consonants in a file:
+```python
+file_name = "file.txt"  # Replace with your file name
+
+vowels = "aeiouAEIOU"
+vowel_count = consonant_count = total_characters = 0
+
+with open(file_name, "r") as file:
+    for line in file:
+        for char in line:
+            if char.isalpha():
+                total_characters += 1
+                if char in vowels:
+                    vowel_count += 1
+                else:
+                    consonant_count += 1
+
+if total_characters > 0:
+    vowel_percentage = (vowel_count / total_characters) * 100
+    consonant_percentage = (consonant_count / total_characters) * 100
+else:
+    vowel_percentage = consonant_percentage = 0
+
+print(f"Vowels: {vowel_percentage:.2f}%, Consonants: {consonant_percentage:.2f}%")
+```
+**Explanation**:  
+- Count alphabetic characters only.
+- Calculate percentages using the total alphabetic characters.
+
+---
+
+### 6. Different file access modes in Python:
+- **`r`**: Read (default mode, file must exist).
+- **`w`**: Write (creates/truncates a file).
+- **`a`**: Append (writes at the end of the file, creates if not exists).
+- **`rb`** / **`wb`** / **`ab`**: Same as above but in binary mode.
+- **`r+`** / **`w+`** / **`a+`**: Open for both reading and writing.
+- **`x`**: Create a new file, fails if file exists.
+
+---
+
+### 7. Program to capitalize after a full stop and write numbers in brackets:
+```python
+input_file = "input.txt"  # Replace with your input file
+output_file = "output.txt"
+
+with open(input_file, "r") as infile, open(output_file, "w") as outfile:
+    content = infile.read()
+    modified_content = ""
+    capitalize_next = True
+
+    for char in content:
+        if char == ".":
+            modified_content += char
+            capitalize_next = True
+        elif char.isdigit():
+            modified_content += f"({char})"
+        elif capitalize_next and char.isalpha():
+            modified_content += char.upper()
+            capitalize_next = False
+        else:
+            modified_content += char
+
+    outfile.write(modified_content)
+```
+**Explanation**:  
+- Track when to capitalize using a flag (`capitalize_next`).
+- Replace digits with their bracketed version.
+
+---
+
+### 8. Program to copy contents while replacing full stops with commas:
+```python
+source_file = "source.txt"  # Replace with your source file
+destination_file = "destination.txt"
+
+with open(source_file, "r") as src, open(destination_file, "w") as dest:
+    for line in src:
+        dest.write(line.replace(".", ","))
+```
+**Explanation**:  
+- Use `str.replace()` to replace all occurrences of a full stop (`.`) with a comma (`,`).
