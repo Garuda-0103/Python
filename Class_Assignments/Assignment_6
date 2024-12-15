@@ -1,0 +1,189 @@
+Here are the requested programs with detailed explanations:
+
+---
+
+### **1. Fraction Class: Simplify a Fraction**
+```python
+from math import gcd
+
+class Fraction:
+    def __init__(self, numerator, denominator):
+        self.numerator = numerator
+        self.denominator = denominator
+
+    def simplify(self):
+        common_divisor = gcd(self.numerator, self.denominator)
+        self.numerator //= common_divisor
+        self.denominator //= common_divisor
+
+    def display(self):
+        print(f"{self.numerator}/{self.denominator}")
+
+# Example usage
+num = int(input("Enter numerator: "))
+den = int(input("Enter denominator: "))
+fraction = Fraction(num, den)
+fraction.simplify()
+fraction.display()
+```
+**Explanation**:  
+- The `gcd` function simplifies the fraction by dividing both numerator and denominator by their greatest common divisor.
+
+---
+
+### **2. Store Class: Generate a Bill**
+```python
+class Store:
+    def __init__(self):
+        self.products = {
+            "P001": {"name": "Product 1", "price": 50},
+            "P002": {"name": "Product 2", "price": 100},
+            "P003": {"name": "Product 3", "price": 150}
+        }
+
+    def display_menu(self):
+        print("Available Products:")
+        for code, details in self.products.items():
+            print(f"{code}: {details['name']} - ₹{details['price']}")
+
+    def generate_bill(self):
+        total_amount = 0
+        print("Enter quantities for each product:")
+        for code, details in self.products.items():
+            qty = int(input(f"Quantity of {details['name']} (₹{details['price']} each): "))
+            total_amount += qty * details['price']
+        print(f"\nTotal Amount: ₹{total_amount}")
+
+# Example usage
+store = Store()
+store.display_menu()
+store.generate_bill()
+```
+**Explanation**:  
+- The `products` dictionary stores product details.
+- The `generate_bill` method calculates the total cost based on user input.
+
+---
+
+### **3. String Status Class**
+```python
+class StringStatus:
+    def __init__(self, input_string):
+        self.input_string = input_string
+
+    def calculate_status(self):
+        vowels = "aeiouAEIOU"
+        self.uppercase = sum(1 for char in self.input_string if char.isupper())
+        self.vowel_count = sum(1 for char in self.input_string if char in vowels)
+        self.consonant_count = sum(1 for char in self.input_string if char.isalpha() and char not in vowels)
+        self.space_count = sum(1 for char in self.input_string if char.isspace())
+
+    def display_status(self):
+        print(f"Uppercase Letters: {self.uppercase}")
+        print(f"Vowels: {self.vowel_count}")
+        print(f"Consonants: {self.consonant_count}")
+        print(f"Spaces: {self.space_count}")
+
+# Example usage
+input_string = input("Enter a string: ")
+string_status = StringStatus(input_string)
+string_status.calculate_status()
+string_status.display_status()
+```
+**Explanation**:  
+- The program uses list comprehensions to count specific character types in the input string.
+
+---
+
+### **4. Person, Faculty, and Publications Classes**
+```python
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def display(self):
+        print(f"Name: {self.name}, Age: {self.age}")
+
+class Faculty(Person):
+    def __init__(self, name, age, department):
+        super().__init__(name, age)
+        self.department = department
+
+    def display(self):
+        super().display()
+        print(f"Department: {self.department}")
+
+class Publications:
+    def __init__(self, publication_list):
+        self.publication_list = publication_list
+
+    def display_publications(self):
+        print("Publications:")
+        for pub in self.publication_list:
+            print(f"- {pub}")
+
+# Example usage
+faculty = Faculty("Dr. Sharma", 45, "Computer Science")
+faculty.display()
+
+publications = Publications(["Research Paper 1", "Book 1"])
+publications.display_publications()
+```
+**Explanation**:  
+- `Faculty` inherits from `Person` using `super()` to reuse functionality.
+- `Publications` is a separate class that manages a list of publications.
+
+---
+
+### **5. Overload `+` Operator for Adding Days to a Date**
+```python
+from datetime import datetime, timedelta
+
+class CustomDate:
+    def __init__(self, date_str):
+        self.date = datetime.strptime(date_str, "%Y-%m-%d")
+
+    def __add__(self, days):
+        if isinstance(days, int):
+            return self.date + timedelta(days=days)
+
+    def display(self):
+        print(self.date.strftime("%Y-%m-%d"))
+
+# Example usage
+date = CustomDate("2024-12-15")
+new_date = date + 10  # Add 10 days
+print("New Date:", new_date.strftime("%Y-%m-%d"))
+```
+**Explanation**:  
+- Use `datetime` for handling dates.
+- Override `__add__` to add days as an integer to the date.
+
+---
+
+### **6. Overload `-=` Operator for Subtracting Distances**
+```python
+class Distance:
+    def __init__(self, feet, inches):
+        self.feet = feet
+        self.inches = inches
+
+    def __isub__(self, other):
+        self.inches -= other.inches
+        self.feet -= other.feet + (self.inches // 12)
+        self.inches %= 12
+        return self
+
+    def display(self):
+        print(f"{self.feet} feet, {self.inches} inches")
+
+# Example usage
+d1 = Distance(5, 9)
+d2 = Distance(2, 4)
+d1 -= d2  # Subtract distances
+d1.display()
+```
+**Explanation**:  
+- Override `__isub__` to implement `-=` for subtracting two `Distance` objects.
+- Handle inch-to-feet conversions to maintain proper representation.
