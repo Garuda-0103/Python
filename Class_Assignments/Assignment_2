@@ -1,0 +1,182 @@
+Skip to main content
+Google Classroom
+Classroom
+AI-503 (Computer Programming Basics with Python)
+MTECH 2024 BATCH
+Home
+Calendar
+Enrolled
+To-do
+M
+MTech, AI, ADSA-(2024-2026)
+1
+M
+MTech, AI-(2024-2026)
+1
+A
+AI 511 (Engineering MLOps)
+MTECH 2024
+A
+AI-503 (Computer Programming Basics with Python)
+MTECH 2024 BATCH
+E
+Expert Lecture Series-1
+MTECH 2024
+A
+ADSA Lab
+MTECH 2024
+M
+Mathematical Foundations for AI
+MTECH 2024
+P
+Principles of Artificial Intelligence and Machine Learning
+MTECH-2024
+Archived classes
+Settings
+ASSIGNMENT 2Assignment details
+ASSIGNMENT 2
+Diksha Kumari
+•
+Oct 1
+100 points
+Due Oct 3
+Attempt all questions by Thursday 9:00 AM
+
+Assignment 2.pdf
+PDF
+Class comments
+Your work
+Turned in
+
+Assignment_2.py
+Text
+Work cannot be turned in after the due date
+Private comments
+# Q1 WAP that finds the greatest of the three numbers using functions. Pass the number as arguments.
+def Greatest_number(num1, num2, num3):
+    if num1 >= num2 and num1 >= num3:
+        return num1
+    elif num2 >= num1 and num2 >= num3:
+        return num2
+    else: 
+        return num3
+
+if __name__ == "__main__":
+    number1 = float(input("Enter the first number"))
+    number2 = float(input("Enter the second number"))
+    number3 = float(input("Enter the third number"))
+ # goa = Greatest_number(number1, number2, number3)
+ # print(f"The greatest number among {number1}, {number2}, and {number3} is: {goa}") 
+    print("The max among three is = ",Greatest_number(number1, number2, number3))
+
+# Q2 WAP to implement these formulae of permutations and combinations.  Number of permutations of n objects taken r at a time: p(n,r)= 
+## n!/(n-r)!.
+### number of combinaations of n objects taken r at time is : c(n,r) = n! / (r!*(n-r)!)= p(n,r)/r!
+
+# Function to calculate factorial
+def factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    else:
+        result = 1
+        for i in range(2, n + 1):
+            result *= i
+        return result
+
+# Function to calculate permutations
+def permutation(n, r):
+    return factorial(n) // factorial(n - r)
+
+# Function to calculate combinations using the formula C(n, r) = P(n, r) / r!
+def combination(n, r):
+    return permutation(n, r) // factorial(r)
+
+# Example usage
+n = 5
+r = 3
+
+# Calculate permutation and combination
+perm = permutation(n, r)
+comb = combination(n, r)
+
+print(f"Permutation P({n}, {r}) = {perm}")
+print(f"Combination C({n}, {r}) = {comb}")
+
+# Q3 Write a function cubesum() that accepts an integer and returns the sum of the cubes of individual digits of that number. Use this function to make functions PrintArmstrong() and isArmstrong() to print Armstrong numbers and to find whether is an Armstrong number.
+# Function to calculate the sum of the cubes of digits of a number
+def cubesum(num):
+    total = 0
+    while num > 0:
+        digit = num % 10   # Get the last digit
+        total += digit ** 3  # Add the cube of the digit
+        num //= 10         # Remove the last digit
+    return total
+
+# Function to check if a number is an Armstrong number
+def isArmstrong(num):
+    return num == cubesum(num)
+
+# Function to print all Armstrong numbers within a given range
+def PrintArmstrong(start, end):
+    print(f"Armstrong numbers between {start} and {end} are:")
+    for num in range(start, end + 1):
+        if isArmstrong(num):
+            print(num)
+
+# Example usage
+num = 153
+if isArmstrong(num):
+    print(f"{num} is an Armstrong number.")
+else:
+    print(f"{num} is not an Armstrong number.")
+
+# Print all Armstrong numbers in a given range
+PrintArmstrong(100,999)
+
+# Q4 Write a Python function to create and print a list where the values are the squares of numbers between 1 and 30 (both included).
+
+
+def print_squares():
+    # Create a list of squares of numbers from 1 to 30
+    squares = [x**2 for x in range(1, 31)]
+    
+    # Print the list of squares
+    print(squares)
+
+# Call the function
+print_squares()
+
+
+# Q5 Given a string s = “1234” and an integer n = 5678, concatenate them as a single string and then convert the result back to an integer. What is the final integer value?
+
+# Given string and integer
+s = "1234"
+n = 5678
+
+# Step 1: Convert the integer n to a string and concatenate it with s
+concatenated_str = s + str(n)
+
+# Step 2: Convert the concatenated string back to an integer
+result = int(concatenated_str)
+
+# Print the final integer value
+print(result)
+
+# Q6 Write a Python program that repeatedly asks the user to enter a positive integer. If the user enters a negative number or zero, the program should ask again until a positive integer is entered.
+
+def get_positive_integer():
+    while True:
+        # Ask the user to input a number
+        number = int(input("Please enter a positive integer: "))
+        
+        # Check if the number is positive
+        if number > 0:
+            print(f"Thank you! You entered: {number}")
+            break  # Exit the loop if a valid positive integer is entered
+        else:
+            print("Invalid input. Please enter a positive integer.")
+
+# Call the function
+get_positive_integer()
+Assignment_2.py
+Displaying Assignment_2.py.
