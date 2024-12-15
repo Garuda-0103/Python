@@ -1,0 +1,112 @@
+1. Extract Each Character from a String Using a Regular Expression
+python
+Copy code
+import re
+
+def extract_characters(s):
+    characters = re.findall(r'.', s)  # Matches every character
+    print("Characters:", characters)
+
+string = input("Enter a string: ")
+extract_characters(string)
+2. Extract Each Word from a String Using a Regular Expression
+python
+Copy code
+import re
+
+def extract_words(s):
+    words = re.findall(r'\b\w+\b', s)  # Matches words bounded by word boundaries
+    print("Words:", words)
+
+string = input("Enter a string: ")
+extract_words(string)
+3. Print the First Word of the String
+python
+Copy code
+def first_word(s):
+    words = s.split()
+    print("First word:", words[0] if words else "No words found")
+
+string = input("Enter a string: ")
+first_word(string)
+4. Print the Last Word of the String
+python
+Copy code
+def last_word(s):
+    words = s.split()
+    print("Last word:", words[-1] if words else "No words found")
+
+string = input("Enter a string: ")
+last_word(string)
+5. Print the Characters in Pairs
+python
+Copy code
+def print_pairs(s):
+    for i in range(0, len(s) - 1, 2):
+        print(s[i:i+2])
+
+string = input("Enter a string: ")
+print_pairs(string)
+6. Print Only the First Two Characters of Every Word
+python
+Copy code
+def first_two_characters_of_words(s):
+    words = s.split()
+    result = [word[:2] for word in words]
+    print("First two characters of each word:", result)
+
+string = input("Enter a string: ")
+first_two_characters_of_words(string)
+7. Validate a Mobile Phone Number
+python
+Copy code
+import re
+
+def validate_phone_number(number):
+    pattern = r'^[789]\d{9}$'
+    if re.fullmatch(pattern, number):
+        print("Valid mobile number")
+    else:
+        print("Invalid mobile number")
+
+phone_number = input("Enter a mobile phone number: ")
+validate_phone_number(phone_number)
+8. Print Words That Start with a Vowel
+python
+Copy code
+import re
+
+def words_starting_with_vowel(s):
+    words = re.findall(r'\b[aeiouAEIOU]\w*', s)  # Matches words starting with a vowel
+    print("Words starting with a vowel:", words)
+
+string = input("Enter a string: ")
+words_starting_with_vowel(string)
+9. Match Strings Starting with an Upper-Case Letter, Followed by a Digit and a -
+python
+Copy code
+import re
+
+def match_pattern(s):
+    pattern = r'^[A-Z]\d-\s.*'
+    if re.match(pattern, s):
+        print("String matches the pattern")
+    else:
+        print("String does not match the pattern")
+
+string = input("Enter a string: ")
+match_pattern(string)
+10. Extract the First n Characters of a String
+python
+Copy code
+def first_n_characters(s, n):
+    print("First", n, "characters:", s[:n])
+
+string = input("Enter a string: ")
+n = int(input("Enter the number of characters to extract: "))
+first_n_characters(string, n)
+
+
+
+
+
