@@ -1,1 +1,117 @@
 
+import math
+def distance():
+    x1= int(input("Enter x1 cordinate "))
+    x2= int(input("Enter y1 cordinate "))
+    y1= int(input("Enter x2 cordinate "))
+    y2= int(input("Enter y2 cordinate "))
+
+    distance = ((x2-x1)*(x2-x1))+((y2-y1)*(y2-y1))
+    print("Distance between the two points: ", math.sqrt(distance));
+
+def Heron():
+    a = int(input("Enter the length of side a: "))
+    b = int(input("Enter the length of side b: "))
+    c = int(input("Enter the length of side c: "))
+    s = (a+b+c)/2
+    area = math.sqrt(s * (s - a) * (s - b) * (s - c))
+    print("The area of the triangle is:", area)
+
+def billamount():
+    s = "1234"
+    n = 5678
+    print("String is",s)
+    print("Integer is",n)
+    n_str = str(n)
+    concatenated_str = s + n_str
+    result = int(concatenated_str)
+    print(result)
+
+
+def swap():
+    a = int(input("Enter value of a"))
+    b = int(input("Enter the value of b "))
+    a = a + b
+    b = a - b
+    a = a - b
+    print(a)
+    print(b)
+
+def average():
+    numbers = [10, 20, 30, 40, 50]
+    total=0
+    print("list is:",numbers)
+    for num in numbers:
+        total += num
+    average = total / len(numbers)
+    print("The average is:", average)
+ # Write a simple basic calculator program in python
+    # Function to perform addition
+def add(x, y):
+    return x + y
+
+    # Function to perform subtraction
+def subtract(x, y):
+    return x - y
+
+    # Function to perform multiplication
+def multiply(x, y):
+    return x * y
+
+    # Function to perform division
+def divide(x, y):
+    if y != 0:
+        return x / y
+    else:
+        return "Error! Division by zero."
+def calculator():
+   
+
+    # Display available operations
+    print("Select operation:")
+    print("1. Add")
+    print("2. Subtract")
+    print("3. Multiply")
+    print("4. Divide")
+
+    # Take input from the user
+    choice = input("Enter choice(1/2/3/4): ")
+
+    # Input numbers
+    num1 = float(input("Enter first number: "))
+    num2 = float(input("Enter second number: "))
+
+    # Perform the selected operation
+    if choice == '1':
+        print("The result is: ",add(num1, num2))
+    elif choice == '2':
+        print("The result is: ",subtract(num1, num2))
+    elif choice == '3':
+        print("The result is: ",multiply(num1, num2))
+    elif choice == '4':
+        print("The result is: ",divide(num1, num2))
+    else:
+        print("Invalid input")
+
+distance()
+Heron()
+billamount()
+swap()
+average()
+calculator()
+Distance between the two points:  0.0
+The area of the triangle is: 6.928203230275509
+String is 1234
+Integer is 5678
+12345678
+5
+4
+list is: [10, 20, 30, 40, 50]
+The average is: 30.0
+Select operation:
+1. Add
+2. Subtract
+3. Multiply
+4. Divide
+The result is:  9.0
+ 
